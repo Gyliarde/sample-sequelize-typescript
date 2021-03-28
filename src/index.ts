@@ -1,12 +1,17 @@
-import { User } from "./entity/User";
+import { UserRepository } from "./entity/UserRepository";
+
 
   (async () => {
-    await User.sync();  
-
-    const jane1 = await User.create({
-      name: 'patient tentant 1 deu boa'
-    });
+    // await User.sync();  
+    // const jane1 = await User.create({
+    //   name: 'patient tentant 1 deu boa'
+    // });
   
-    console.log(jane1.toJSON());    
+    const userRepository = new UserRepository();
+    const users = await userRepository.findAllUsers();
+
+    console.log(users);
+
+    // console.log(jane1.toJSON());    
   })();
 
